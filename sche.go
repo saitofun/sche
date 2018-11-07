@@ -32,7 +32,11 @@ type sche struct {
 	jobs []*job
 }
 
-var Sche = sche{"", make([]*job, 0)} // single instance
+// var Sche = sche{"", make([]*job, 0)} // single instance
+
+func NewSche() *sche {
+	return &sche{uuid.New().String(), make([]*job, 0)}
+}
 
 func (s *sche) Push() *job {
 	j := newJob()
